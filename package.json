@@ -11,10 +11,13 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write .",
-    "fix": "yarn lint && yarn format"
+    "fix": "yarn lint && yarn format",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "prettier": "latest",
     "turbo": "^1.6.3"
   },
@@ -22,5 +25,8 @@
     "node": ">=14.0.0"
   },
   "dependencies": {},
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.19",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
+  }
 }
