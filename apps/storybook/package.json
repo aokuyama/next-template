@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "build-storybook"
+    "build": "build-storybook",
+    "lint": "TIMING=1 eslint \"**/*.ts*\""
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
