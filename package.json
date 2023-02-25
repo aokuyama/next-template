@@ -12,6 +12,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write .",
     "fix": "yarn lint && yarn format",
+    "type-check": "turbo run type-check",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -27,6 +28,9 @@
   "dependencies": {},
   "packageManager": "yarn@1.22.19",
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
+    "**/*.ts*": [
+      "bash -c 'yarn type-check'"
+  ],
+    "*.{js,jsx,ts,tsx,css,md}": ["eslint --fix", "prettier --write"]
   }
 }
