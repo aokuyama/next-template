@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import { Title } from "ui/src/components/Title";
 
 export default {
@@ -7,9 +7,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Title>;
+} as Meta<typeof Title>;
 
-const Template: ComponentStory<typeof Title> = (args) => <Title {...args} />;
+const Template: StoryFn<typeof Title> = (args) => <Title {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
