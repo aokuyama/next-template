@@ -1,5 +1,7 @@
-import { StoryFn, Meta } from "@storybook/react";
+import { StoryObj, Meta } from "@storybook/react";
 import { Title } from "ui/src/components/Title";
+import { within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 export default {
   title: "Example/Title",
@@ -9,9 +11,14 @@ export default {
   },
 } as Meta<typeof Title>;
 
-const Template: StoryFn<typeof Title> = (args) => <Title {...args} />;
+export type Title = StoryObj<typeof Title>;
 
-export const Default = Template.bind({});
-Default.args = {
-  children: "Title",
+export const Default: Title = {
+  args: {
+    children: "Title",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText("Title")).toBeInTheDocument();
+  },
 };
