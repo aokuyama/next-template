@@ -7,13 +7,15 @@
     "packages/*"
   ],
   "scripts": {
+    "test": "turbo run test",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write .",
     "fix": "turbo run lint -- --fix",
     "type-check": "turbo run type-check",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "w": "yarn workspace"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
