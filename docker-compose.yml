@@ -5,10 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./:/workspaces
-      - node_modules:/workspaces/node_modules
-      - app_web_next:/workspaces/apps/web/.next
-    working_dir: /workspaces
+      - ./:/workspaces/app
+      - node_modules:/workspaces/app/node_modules
+      - app_web_next:/workspaces/app/apps/web/.next
+    working_dir: /workspaces/app
     tty: true
     ports:
       - ${DEV_PORT_WEB:-3000}:3000
